@@ -8,12 +8,12 @@ part 'onboarding_event.dart';
 part 'onboarding_state.dart';
 
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
-  final GetOnboardingUseCase onboardingUsecase;
-  OnboardingBloc({required this.onboardingUsecase}) : super(Loading()) {
+  final GetOnboardingUseCase getOnboardingUsecase;
+  OnboardingBloc({required this.getOnboardingUsecase}) : super(Loading()) {
     on<OnboardingEvent>((event, emit) async {
       if (event is GetOnboarding) {
         try {
-          List<Onboarding> response = await onboardingUsecase.execute();
+          List<Onboarding> response = await getOnboardingUsecase.execute();
           emit(Loaded(onboard: response));
         } catch (e) {
           emit(Error(error: e.toString()));

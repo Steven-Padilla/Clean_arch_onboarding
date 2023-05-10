@@ -1,4 +1,4 @@
-import 'package:veterinaria_app/screens/components/on_boarding.dart';
+import 'package:veterinaria_app/features/onboarding/presentation/pages/components/on_boarding.dart';
 import 'package:flutter/material.dart';
 
 class BodyBoarding extends StatefulWidget {
