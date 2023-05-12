@@ -8,3 +8,8 @@ class GetOnboardingUseCase {
     return await onboardingRepository.getOnboarding();
   }
 }
+
+class ChangePageUseCase {
+  
+}
+

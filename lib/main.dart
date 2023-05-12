@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:veterinaria_app/features/onboarding/presentation/blocState/onboarding_bloc.dart';
 import 'package:veterinaria_app/features/onboarding/presentation/pages/components/on_boarding.dart';
-import 'package:veterinaria_app/features/onboarding/presentation/pages/home.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:veterinaria_app/features/timer/presentation/blocs/timer_bloc.dart';
+import 'package:veterinaria_app/features/timer/presentation/pages/timer.dart';
+import 'package:veterinaria_app/features/timer/data/models/ticker.dart';
 import 'package:veterinaria_app/usecases_config.dart';
+
 UsecaseConfig usecaseConfig = UsecaseConfig();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,10 +21,11 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<OnboardingBloc>(
-          create: (BuildContext context) => OnboardingBloc(getOnboardingUsecase: usecaseConfig.getOnboardingUseCase!)
-        ),
+            create: (BuildContext context) => OnboardingBloc(
+                getOnboardingUsecase: usecaseConfig.getOnboardingUseCase!)),
+        BlocProvider<TimerBloc>(
+          create: (BuildContext context) => TimerBloc(ticker: const Ticker() ))
       ],
-
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
@@ -30,10 +34,9 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => const OnBoarding(),
-          '/home': (context) => const  HomeScreen(),
+          '/home': (context) => const MyTimer(),
         },
       ),
     );
   }
 }
-

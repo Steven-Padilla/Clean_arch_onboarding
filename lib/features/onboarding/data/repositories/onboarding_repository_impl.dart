@@ -9,6 +9,7 @@ class OnboardingRepositoryImpl implements OnboardingRepository {
 
   @override
   Future<List<Onboarding>> getOnboarding() async {
+    
     return await onboardingRemoteDataSource.getOnboarding();
   }
 }

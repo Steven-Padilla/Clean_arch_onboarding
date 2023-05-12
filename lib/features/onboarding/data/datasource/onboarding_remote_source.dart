@@ -1,6 +1,5 @@
-import 'dart:html';
+import 'dart:async';
 
-import 'package:veterinaria_app/features/onboarding/domain/entities/onboarding.dart';
 import 'package:veterinaria_app/features/onboarding/data/models/onboarding_model.dart';
 
 List<OnboardingModel> contents = [
@@ -39,6 +38,7 @@ class OnboardingRemoteDataSourceImpl extends OnboardingRemoteDataSource {
   @override
   Future<List<OnboardingModel>> getOnboarding() async {
     return contents
-        .map<OnboardingModel>((data) => OnboardingModel.fromEntity(data)).toList();
+        .map<OnboardingModel>((data) => OnboardingModel.fromEntity(data))
+        .toList();
   }
 }

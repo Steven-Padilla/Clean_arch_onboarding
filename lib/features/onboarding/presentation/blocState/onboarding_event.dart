@@ -5,3 +5,7 @@ part of 'onboarding_bloc.dart';
 abstract class OnboardingEvent {}
 
 class GetOnboarding extends OnboardingEvent{}
+
+class LoadedChange extends OnboardingEvent{}
+
+class ChangePage extends OnboardingEvent{}

@@ -8,7 +8,12 @@ class Loading extends OnboardingState {}
 
 class Loaded extends OnboardingState {
   final List<Onboarding> onboard;
-  Loaded({required this.onboard});
+  final int infoLength;
+  Loaded({required this.onboard, required this.infoLength});
+}
+
+class Change extends OnboardingState {
+
 }
 
 class Error extends OnboardingState{
